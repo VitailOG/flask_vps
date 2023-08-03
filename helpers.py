@@ -13,7 +13,7 @@ from fetcher import UserCoordinateFetcher
 
 
 def get_near_vps(ip: str) -> NearVPSResponse:
-    user_info = UserCoordinateFetcher(ip).fetch()
+    user_info = UserCoordinateFetcher(ip).json()
     user_coordinates = (user_info['longitude'], user_info['latitude'])
     distances = []
     for server in VPS_SERVERS:
@@ -34,10 +34,10 @@ def get_near_vps(ip: str) -> NearVPSResponse:
 
 def timeit(func):
     def inner(*args, **kwargs) -> tuple[Any, float]:
-        start = time.process_time_ns()
+        from datetime import datetime
+        start = datetime.now()
         res = func(*args, **kwargs)
-        duration = (time.process_time_ns() - start) / 1_000_000_000
-        return res, duration
+        return res, (datetime.now() - start).total_seconds()
     return inner
 
 

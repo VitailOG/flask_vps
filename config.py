@@ -3,7 +3,7 @@ VPS_SERVERS = {
         "city": "Frankfurt",
         "longitude": 50.110924,
         "latitude": 8.682127,
-        "ip": "68.183.231.90",
+        "ip": "209.38.242.136",
         "user": "root",
         "password": "S6F8Wddsadf"
     },
